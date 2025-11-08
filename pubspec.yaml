@@ -5,7 +5,7 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.2.0 <4.0.0'  # ✅ Compatível com Flutter 3.24+
+  sdk: '>=3.2.0 <4.0.0'
 
 dependencies:
   flutter:
@@ -14,7 +14,7 @@ dependencies:
   # Ícones
   cupertino_icons: ^1.0.8
 
-  # ✅ Firebase (versões estáveis e compatíveis)
+  # ✅ Firebase (versões estáveis)
   firebase_core: ^3.5.0
   firebase_auth: ^5.3.0
   cloud_firestore: ^5.4.0
@@ -26,8 +26,8 @@ dependencies:
   geolocator: ^10.1.0
   geocoding: ^3.0.0
   location: ^7.0.1
-  flutter_google_places_hoc081098: ^2.0.0-beta.1  # ✅ Corrigido para suportar http 1.x
-  google_api_headers: ^1.4.0
+  flutter_google_places_hoc081098: ^2.0.0
+  google_api_headers: ^4.2.3  # ✅ compatível com a lib acima
 
   # ✅ UI e utilitários
   modal_bottom_sheet: ^3.0.0
