@@ -5,15 +5,16 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.2.0 <4.0.0'  # ✅ Atualizado para Dart 3+
+  sdk: '>=3.2.0 <4.0.0'  # ✅ Compatível com Flutter 3.24+
 
 dependencies:
   flutter:
     sdk: flutter
 
+  # Ícones
   cupertino_icons: ^1.0.8
 
-  # ✅ Firebase (versões estáveis e integradas)
+  # ✅ Firebase (versões estáveis e compatíveis)
   firebase_core: ^3.5.0
   firebase_auth: ^5.3.0
   cloud_firestore: ^5.4.0
@@ -25,7 +26,7 @@ dependencies:
   geolocator: ^10.1.0
   geocoding: ^3.0.0
   location: ^7.0.1
-  flutter_google_places_hoc081098: ^1.0.0  # substituto estável para flutter_google_places
+  flutter_google_places_hoc081098: ^2.0.0-beta.1  # ✅ Corrigido para suportar http 1.x
   google_api_headers: ^2.0.1
 
   # ✅ UI e utilitários
