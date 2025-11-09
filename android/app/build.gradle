@@ -1,21 +1,22 @@
 plugins {
     id "com.android.application"
-    id "kotlin-android"
+    id "org.jetbrains.kotlin.android"
     id "dev.flutter.flutter-gradle-plugin"
     id "com.google.gms.google-services"
 }
 
 android {
     namespace "com.seuapp.example"
-    compileSdkVersion 34
+    compileSdk = 34
     ndkVersion "25.2.9519653"
 
     defaultConfig {
         applicationId "com.seuapp.example"
-        minSdkVersion 23
-        targetSdkVersion 34
-        versionCode 1
-        versionName "1.0"
+
+        // ✅ Novo padrão do AGP — sem "Version" no final
+        minSdk = 23
+        targetSdk = 34
+
         multiDexEnabled true
     }
 
@@ -36,8 +37,20 @@ android {
             shrinkResources false
             proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
+
         debug {
             signingConfig signingConfigs.release
+        }
+    }
+
+    // ✅ Obrigatório para AGP + Flutter moderno
+    buildFeatures {
+        buildConfig = true
+    }
+
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging = true
         }
     }
 }
@@ -47,6 +60,8 @@ flutter {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.22"
+    implementation platform("com.google.firebase:firebase-bom:33.1.2")
     implementation "com.google.firebase:firebase-analytics"
+
+    // ✅ Não precisa mais colocar kotlin stdlib manualmente
 }
