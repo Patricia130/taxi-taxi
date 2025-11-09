@@ -1,41 +1,44 @@
-// android/app/build.gradle
 plugins {
     id "com.android.application"
     id "kotlin-android"
     id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services"
 }
 
 android {
-    namespace "com.seuprojeto.motoboy"
-    compileSdk 34
+    namespace "com.seuapp.example"
+    compileSdkVersion 34
+    ndkVersion "25.2.9519653"
 
     defaultConfig {
-        applicationId "com.seuprojeto.motoboy"
-        minSdk 23
-        targetSdk 34
+        applicationId "com.seuapp.example"
+        minSdkVersion 23
+        targetSdkVersion 34
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
     }
 
+    signingConfigs {
+        release {
+            // configure aqui seu keystore, se necessário
+            // storeFile file("key.jks")
+            // storePassword "sua_senha"
+            // keyAlias "seu_alias"
+            // keyPassword "sua_senha"
+        }
+    }
+
     buildTypes {
         release {
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
             minifyEnabled false
             shrinkResources false
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
         debug {
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
         }
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
-    }
-
-    kotlinOptions {
-        jvmTarget = "17"
     }
 }
 
@@ -44,6 +47,6 @@ flutter {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.25"
-    implementation "androidx.multidex:multidex:2.0.1"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.22"
+    implementation "com.google.firebase:firebase-analytics"
 }
