@@ -5,7 +5,7 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.2.0 <4.0.0'
+  sdk: ">=3.2.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -14,22 +14,22 @@ dependencies:
   # Ícones
   cupertino_icons: ^1.0.8
 
-  # ✅ Firebase (versões estáveis)
+  # Firebase
   firebase_core: ^3.5.0
   firebase_auth: ^5.3.0
   cloud_firestore: ^5.4.0
   firebase_storage: ^12.3.0
   firebase_messaging: ^15.1.0
 
-  # ✅ Google Maps e localização
+  # Google Maps e localização
   google_maps_flutter: ^2.7.0
   geolocator: ^10.1.0
   geocoding: ^3.0.0
   location: ^7.0.1
   flutter_google_places_hoc081098: ^2.0.0
-  google_api_headers: ^4.2.3  # ✅ compatível com a lib acima
+  google_api_headers: ^4.2.3
 
-  # ✅ UI e utilitários
+  # UI e utilitários
   modal_bottom_sheet: ^3.0.0
   flutter_spinkit: ^5.2.1
   percent_indicator: ^4.2.3
@@ -42,8 +42,6 @@ dependencies:
   http: ^1.2.2
   uuid: ^4.4.0
   get_it: ^7.7.0
-
-  # ✅ Notificações
   flutter_local_notifications: ^17.2.2
 
 dev_dependencies:
@@ -53,6 +51,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-
   assets:
     - assets/
+
+dependency_overrides:
+  google_api_headers: ^4.2.3
